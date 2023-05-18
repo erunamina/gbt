@@ -1,0 +1,7 @@
+[main]
+extensions = ['.m4v', '.mov']
+directories = ['/Users/dan/PycharmProjects/glacier_backup_tool/test/resources']
+
+[aws]
+vault_name = 'user_vault_name'
+aws_region = 'us-west-2'
