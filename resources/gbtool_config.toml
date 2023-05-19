@@ -5,5 +5,5 @@ extensions = ['.m4v', '.mov', '.m4v', '.jpg', '.dng']
 directories = ['~/Ponderosa Hills/media']
 
 [aws]
-vault_name = 'user_vault_name'
+vault_name = 'user_vault_name (not arn)'
 aws_region = 'us-west-2'
