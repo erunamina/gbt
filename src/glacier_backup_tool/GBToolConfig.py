@@ -179,9 +179,10 @@ class LastUpdated(PathService):
 
     @latest_timestamp.setter
     def latest_timestamp(self, tm):
+        print(f'Setting latest timestamp to {tm}')
         if tm is None:
             tm = time.time()
-        with open(self.file, 'w') as latest_store:
+        with open(self._file_path, 'w') as latest_store:
             latest_store.write(str(tm))
 
     @property
@@ -203,7 +204,7 @@ class LastUpdated(PathService):
             new_file.write(str(0))
 
     def _read_latest_store(self) -> float:
-        with open (self.file, 'r') as latest_store:
+        with open(self.file, 'r') as latest_store:
             num = latest_store.readline()
             self._latest_update_time = float(num)
             return self._latest_update_time
