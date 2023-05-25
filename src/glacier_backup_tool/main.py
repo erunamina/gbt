@@ -14,7 +14,7 @@ def process():
     lu.latest_timestamp = time.time()  # todo: possible race condition here if upload fails
     if len(files_for_upload) > 0:
         print(f'Number of files to upload: {len(files_for_upload)}')
-        zipped = fw.zip_files(fw.find_new_files())
+        zipped = fw.zip_files(files_for_upload)
         # todo: implement failure handling
         GlacierService().upload_file(zipped)
     else:

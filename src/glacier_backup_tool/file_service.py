@@ -37,11 +37,14 @@ class FileWatcher:
     def filter_files_by_st_ctime(self, files: list) -> list:
         """Remove files from list that were created before self._latest_update_files.latest_timestamp"""
         temp = []
+        latest = self._latest_update_file.latest_timestamp
+
+        print(f'latest: {latest}')
         for f in files:
             file = pathlib.Path(f)
-            print(f'Latest timestamp: {self._latest_update_file.latest_timestamp}')
+            print(f'Latest timestamp: {latest}')
             print(f'File update time: {file.stat().st_ctime}')
-            if file.stat().st_ctime > self._latest_update_file.latest_timestamp:
+            if file.stat().st_ctime > latest:
                 temp.append(file)
                 print(f'Adding file: {file}')
         print(f'Returning files filtered by last updated timestamp: {temp}')
